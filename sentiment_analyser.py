@@ -1,3 +1,5 @@
+from unittest.mock import sentinel
+
 import requests
 import json
 
@@ -33,7 +35,7 @@ class Sentiment_Analyser:
         response = requests.post(f"{endpoint}/openai/deployments/{deplopyment_name}/chat/completions?api-version={api_version}",
                                  headers=headers,
                                  data=json.dumps(body))
-
+        sentiment = ""
         #check the success and extract the response
         if response.status_code==200:
             result = response.json()

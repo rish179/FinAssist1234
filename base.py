@@ -3,7 +3,10 @@ from sentiment_analyser import Sentiment_Analyser
 
 class fin_assist:
     def chat_asssit(self, stock):
-        tweetlist = Stock_News.fetch_yahoo_finance_news_today(self, stock_symbol=stock)
+        tweetlist1 = Stock_News.fetch_yahoo_finance_news_today(self, stock_symbol=stock)
+        tweetlist2 = Stock_News.fetch_news_api_today(self, stock)
+        tweetlist = tweetlist1 + tweetlist2
+        print(tweetlist)
         sentiment = Sentiment_Analyser.analyse(self, tweetlist)
         print(sentiment)
 

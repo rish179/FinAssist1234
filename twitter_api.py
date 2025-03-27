@@ -63,7 +63,7 @@ class Stock_News:
         client = tweepy.Client(bearer_token=twitter_bearer_token, wait_on_rate_limit=True)
 
         query = f"{stock_symbol} -is:retweet lang:en"
-        tweets = client.search_recent_tweets(query=query, max_results=100, tweet_fields=['created_at'])
+        tweets = client.search_recent_tweets(query=query, max_results=3, tweet_fields=['created_at'])
 
         tweet_list = []
         now = datetime.now(timezone.utc)
@@ -90,10 +90,27 @@ class Stock_News:
 
         return tweet_list
 
+    def fetch_news_api_today(selfself, stock_symbol, count=10):
+        API_KEY = "9753258da1534e529200ad6a76e1f034"
+        url = f"https://newsapi.org/v2/everything?q={stock_symbol}&sortBy=publishedAt&language=en&apiKey={API_KEY}"
+
+        response = requests.get(url)
+        news_data = response.json()
+        news_list=[]
+        if news_data["status"] == "ok":
+            articles = news_data["articles"][:5]  # Get top 5 news articles
+            for article in articles:
+                news_list.append({
+                    "title": article["title"],
+                    "url": article["url"],
+                    "published_at": article["publishedAt"]
+                })
+        else:
+            print("Error fetching news")
+        return news_list
+
 if __name__ == "__main__":
     sn = Stock_News()
-    newslist = sn.fetch_yahoo_finance_news_today("AAPL")
-    # tweetlist = sn.fetch_twitter_news_today("AAPL")
-    print(newslist)
-    # print(tweetlist)
+    tweetlist = sn.fetch_news_api_today("AAPL")
+    print(tweetlist)
 
