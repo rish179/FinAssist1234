@@ -13,4 +13,4 @@ class fin_assist:
 
 if __name__ == "__main__":
     fn = fin_assist()
-    fn.chat_asssit("AAPL")
+    fn.chat_asssit("TESLA")

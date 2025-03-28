@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 
 class Stock_News:
 
-    def fetch_yahoo_finance_news_today(self, stock_symbol, count=5):
+    def fetch_yahoo_finance_news_today(self, stock_symbol, count=1):
         url = f"https://finance.yahoo.com/quote/{stock_symbol}/news"
         headers = {'User-Agent': 'Mozilla/5.0'}
 
@@ -42,11 +42,11 @@ class Stock_News:
                 summary = summary_tag.text.strip() if summary_tag else ''
 
                 news_list.append({
-                    'headline': headline,
-                    'url': link,
-                    'summary': summary,
-                    'source': 'Yahoo Finance',
-                    'timestamp': timestamp
+                    'headline': headline
+                    # 'url': link,
+                    # 'summary': summary,
+                    # 'source': 'Yahoo Finance',
+                    # 'timestamp': timestamp
                 })
 
                 if len(news_list) >= count:
@@ -54,7 +54,7 @@ class Stock_News:
 
             except Exception as e:
                 print("Error parsing section:", e)
-        print(news_list)
+        # print(news_list)
 
         return news_list
 
@@ -90,7 +90,7 @@ class Stock_News:
 
         return tweet_list
 
-    def fetch_news_api_today(selfself, stock_symbol, count=10):
+    def fetch_news_api_today(selfself, stock_symbol, count=1):
         API_KEY = "9753258da1534e529200ad6a76e1f034"
         url = f"https://newsapi.org/v2/everything?q={stock_symbol}&sortBy=publishedAt&language=en&apiKey={API_KEY}"
 
@@ -98,19 +98,19 @@ class Stock_News:
         news_data = response.json()
         news_list=[]
         if news_data["status"] == "ok":
-            articles = news_data["articles"][:5]  # Get top 5 news articles
+            articles = news_data["articles"][:count]  # Get top 5 news articles
             for article in articles:
                 news_list.append({
-                    "title": article["title"],
-                    "url": article["url"],
-                    "published_at": article["publishedAt"]
+                    "title": article["title"]
+                    # "url": article["url"],
+                    # "published_at": article["publishedAt"]
                 })
         else:
             print("Error fetching news")
         return news_list
 
-if __name__ == "__main__":
-    sn = Stock_News()
-    tweetlist = sn.fetch_news_api_today("AAPL")
-    print(tweetlist)
+# if __name__ == "__main__":
+#     sn = Stock_News()
+#     tweetlist = sn.fetch_news_api_today("AAPL")
+#     print(tweetlist)
 
