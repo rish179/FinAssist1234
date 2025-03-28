@@ -1,0 +1,65 @@
+.Suggesstions-div {
+    width: 70%;
+    /* border: 1px solid black; */
+    margin-top: 0px
+}
+
+.Suggesstions-label {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 5px;
+    color: rgb(34, 65, 166);
+}
+
+.Suggesstions-content {
+    margin-top: 20px;
+    border: 1px solid rgb(183, 182, 182);
+    border-radius: 5px;
+    height: 380px;
+
+    /* border: 1px solid black; */
+}
+
+.Empty_content {
+    text-align: center;
+    align-content: center;
+}
+
+.Suggesstions-message {
+    font-size: 18px;
+
+    color: grey;
+}
+
+
+.suggestion_stock_symb {
+    font-weight: 600;
+    color: rgb(34, 65, 166);
+}
+
+.Suggesstions_AI-div {
+    /* border: 1px solid black; */
+    width: 92%;
+    margin-top: 20px;
+}
+
+.Suggesstions-items {
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.Suggesstions-loading {
+    margin-top: 20px;
+    border: 1px solid rgb(183, 182, 182);
+    border-radius: 5px;
+    height: 380px;
+    padding-top: 20px;
+    /* align-content: center; */
+}
+
+.Suggesstions-text {
+    margin: 0;
+    text-align: center;
+    color: rgb(100, 100, 100);
+}
