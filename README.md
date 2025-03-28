@@ -6,16 +6,15 @@ Financial markets are highly influenced by news sentiment, and traders must proc
 
 This project integrates multiple APIs to fetch news, analyze sentiment, and predict stock actions based on real-time data.
 
-⚙️ Technical Overview
-🔹 System Architecture
+## ⚙️ Technical Overview
 
-## **Frontend**:
+### **Frontend**:
 
 Accepts a CSV file containing the user's stock portfolio (list of ticker symbols). Shows related news personalised based on the users Portfolio.
 
 Built using React.js,HTML/CSS to provide an intuitive UI.
 
-## **Data Collection Layer**:
+### **Data Collection Layer**:
 
 Fetches real-time stock-related news from multiple sources using APIs:
 
@@ -29,7 +28,7 @@ Google News API – Sources trending financial articles.
 
 Filters and preprocesses the data to remove duplicate or irrelevant content.
 
-## **Sentiment Analysis & AI Processing**:
+### **Sentiment Analysis & AI Processing**:
 
 Aggregated news articles are sent to Azure GPT-4 API, where:
 
@@ -40,7 +39,7 @@ Contextual understanding helps in refining investment decisions.
 Uses prompt engineering to tailor GPT-4 responses for stock sentiment evaluation.
 
 
-## **Decision-Making Engine**:
+### **Decision-Making Engine**:
 
 Sentiment scores are mapped to trading decisions:
 
@@ -52,20 +51,20 @@ Neutral sentiment → Hold recommendation 🔍
 
 Implements a rule-based approach to adjust predictions based on stock trends.
 
-## **Backend & API Management**:
+### **Backend & API Management**:
 
 Developed using Python, Flask for efficient API handling.
 
 
 
-## 🔹 Why This Approach?
+### 🔹 Why This Approach?
 ✔ Real-Time Market Analysis – Automates financial news tracking.
 ✔ AI-Powered Sentiment Analysis – Uses GPT-4 for deep contextual understanding.
 ✔ Multi-Source Data Aggregation – Ensures a more holistic market view.
 ✔ Scalable Architecture – Can handle multiple users and large datasets.
 ✔ Customizable Decision Engine – Users can tweak decision parameters based on risk appetite.
 
-🚀 Future Enhancements
+### 🚀 Future Enhancements
 Integrate Trading APIs (Zerodha, Alpaca, Interactive Brokers) for automated trades.
 
 Enhance accuracy by combining GPT-4 with FinBERT sentiment analysis.
