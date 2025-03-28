@@ -1,6 +1,7 @@
 # TRADESENSE
 
 🚀 Introduction
+
 Financial markets are highly influenced by news sentiment, and traders must process vast amounts of information in real time. Stock Sentiment Analyzer automates this process using Natural Language Processing (NLP) and AI-driven sentiment analysis to provide actionable trading insights.
 
 This project integrates multiple APIs to fetch news, analyze sentiment, and predict stock actions based on real-time data.
